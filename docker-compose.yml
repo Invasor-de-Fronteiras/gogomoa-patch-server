@@ -19,7 +19,13 @@ services:
       - internal
     volumes:
       - ./patch_server:/var/www/html
-
+  filebrowser:
+    image: filebrowser/filebrowser
+    ports:
+      - 8188:80
+    volumes:
+      - ./config:/config
+      - ./patch_server:/srv
 networks:
   internal:
     driver: bridge
